@@ -5,10 +5,12 @@ import { KafkaModule } from '@app/kafka';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
+import { DatabaseModule } from '@app/database';
 
 @Module({
   imports: [
     KafkaModule.register('auth-service-group'),
+    DatabaseModule,
     PassportModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET || 'secret',

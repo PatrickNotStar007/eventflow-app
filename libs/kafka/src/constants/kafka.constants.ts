@@ -1,4 +1,4 @@
-export const KAFKA_BROKER_URL = process.env.KAFKA_BROKER || 'localhost:9092';
+export const KAFKA_BROKER_URL = process.env.KAFKA_BROKER || 'localhost:9093';
 export const KAFKA_CLIENT_ID = 'eventflowapp';
 export const KAFKA_CONSUMER_GROUP = 'eventflowapp-consumer';
 
