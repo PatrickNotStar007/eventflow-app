@@ -25,10 +25,10 @@ export class EventsServiceController {
 
   @Get()
   findAll() {
-    this.eventsServiceService.findAll();
+    return this.eventsServiceService.findAll();
   }
 
-  @Get()
+  @Get('my-events')
   findMyEvent(@Headers('x-user-id') userId: string) {
     return this.eventsServiceService.findMyEvent(userId);
   }
@@ -62,7 +62,7 @@ export class EventsServiceController {
     return this.eventsServiceService.publish(id, userId, userRole);
   }
 
-  @Post(':id/cancell')
+  @Post(':id/cancel')
   cancell(
     @Param('id', ParseUUIDPipe) id: string,
     @Headers('x-user-id') userId: string,

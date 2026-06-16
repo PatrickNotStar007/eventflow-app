@@ -5,6 +5,7 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
+  Put,
   Request,
   UseGuards,
 } from '@nestjs/common';
@@ -46,7 +47,7 @@ export class EventsController {
   }
 
   @UseGuards(AuthGuard('jwt'))
-  @Post()
+  @Put(':id')
   update(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() updateEventDto: UpdateEventDto,
@@ -61,7 +62,7 @@ export class EventsController {
   }
 
   @UseGuards(AuthGuard('jwt'))
-  @Post()
+  @Post(':id/publish')
   publish(
     @Param('id', ParseUUIDPipe) id: string,
     @Request() req: { user: { userId: string; role?: string } },
@@ -74,7 +75,7 @@ export class EventsController {
   }
 
   @UseGuards(AuthGuard('jwt'))
-  @Post()
+  @Post(':id/cancel')
   cancel(
     @Param('id', ParseUUIDPipe) id: string,
     @Request() req: { user: { userId: string; role?: string } },
