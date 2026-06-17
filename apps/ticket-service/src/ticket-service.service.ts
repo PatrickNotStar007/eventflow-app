@@ -98,7 +98,7 @@ export class TicketServiceService implements OnModuleInit {
     };
   }
 
-  async findMyTicket(userId: string) {
+  async findMyTickets(userId: string) {
     const userTickets = await this.dbseService.db
       .select({
         id: tickets.id,
