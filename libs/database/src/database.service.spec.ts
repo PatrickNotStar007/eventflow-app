@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { DatabaseService } from './database.service';
+import * as bcrypt from 'bcrypt';
 
 describe('DatabaseService', () => {
   let service: DatabaseService;

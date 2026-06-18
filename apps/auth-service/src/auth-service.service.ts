@@ -20,10 +20,6 @@ export class AuthServiceService implements OnModuleInit {
     private readonly jwtService: JwtService,
   ) {}
 
-  getHello(): string {
-    return 'Hello World!';
-  }
-
   async onModuleInit() {
     await this.kafkaClient.connect();
   }
